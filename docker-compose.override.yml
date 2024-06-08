@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  nginx:
+    ports:
+      - "4001:80"
+
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
+
+  phpmyadmin:
+    ports:
+      - "6001:80"
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
